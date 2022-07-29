@@ -15,21 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org
-
-      - name: Install dependencies
-        run: npm install --frozen-lockfile
-
-      - name: Build the ReactJS bundle
-        run: npm run build
-        env:
-          REACT_APP_BACKEND_URL: "http://localhost:3000"
-          PORT: 80
-
       - name: Pin to IPFS
         id: upload
         uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
